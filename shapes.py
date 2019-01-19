@@ -18,5 +18,3 @@ class buttons:
             disrect = displayfont.get_rect()
             disrect.center = (self.xcor + self.width/2, self.ycor + self.height/2 )
             self.surface.blit(displayfont, disrect)
-
-

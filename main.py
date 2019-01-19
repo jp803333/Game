@@ -1,7 +1,9 @@
 import pygame
+from pygame.draw import  circle as cir
 import sys
 from shapes import buttons as btn
 import startgame
+import tokens
 
 
 pygame.init()
@@ -44,7 +46,6 @@ while True:
         newbtn = btn(275, 12, 50, 25, screen, (0, 0, 255), 'Quit', 14)
         newbtn.draw()
         mouse = pygame.mouse.get_pos()
-        print(mouse)
         if 325 >= mouse[0] > 275 and 37 >= mouse[1] > 12:
             newbtn = btn(275, 12, 50, 25, screen, (0, 0, 255), 'Quit', 14)
             newbtn.draw()
@@ -53,9 +54,10 @@ while True:
         else:
             newbtn = btn(275, 12, 50, 25, screen, (0, 0, 200), 'Quit', 14)
             newbtn.draw()
-
-
-
+        red = (tokens.token(185, 435, screen, 1),tokens.token(151, 402, screen, 1), tokens.token(121, 434, screen, 1), tokens.token(151, 471, screen, 1))
+        redcor = ([190,440], [156,407], [126,439],  [156,476], )
+        for i in range(4):
+            red[i].draw()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
