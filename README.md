@@ -1,1 +1,2 @@
-# Game
+-> It is my one of the first few projects in python.
+-> This one is a simple ludo game.
