@@ -5,7 +5,7 @@ import startgame
 
 
 pygame.init()
-hello = 0
+
 size = width, height = 600, 600
 sts = 0
 bgimage = pygame.image.load('resources\main.png')
