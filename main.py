@@ -3,6 +3,13 @@ import sys
 import startgame
 import buttons
 import random
+import player
+from coordinates import origincoordinates as scor
+from coordinates import redpath as rcor
+from coordinates import greenpath as gcor
+from coordinates import yellowpath as ycor
+from coordinates import bluepath as bcor
+
 
 pygame.init()
 
@@ -25,7 +32,8 @@ def Throw():
     draw = random.randint(1, 6)
 
 sts = 0
-draw = 1
+draw = 0
+
 
 pcolor = [46, 64, 83]
 acolor = [52, 73, 94]
@@ -42,6 +50,13 @@ diceimg = {1: pygame.image.load('resources\dice1.png'),
                  5: pygame.image.load('resources\dice5.png'),
                  6: pygame.image.load('resources\dice6.png')}
 
+Player = { 1: (player.player('red', screen), player.player('red', screen), player.player('red', screen), player.player('red', screen)),
+                2: (player.player('green', screen), player.player('green', screen), player.player('green', screen), player.player('green', screen),),
+                3: (player.player('yellow', screen), player.player('yellow', screen), player.player('yellow', screen), player.player('yellow', screen), ),
+                4: (player.player('blue', screen), player.player('blue', screen), player.player('blue', screen), player.player('blue', screen), )}
+
+Gplayer = { }
+
 while True:
     if sts == 0:
         screen.blit(bgimage, (0, 0))
@@ -54,7 +69,12 @@ while True:
         newgame.createboard()
         quitbtn.Draw()
         dicebtn.Draw()
-        screen.blit(diceimg.get(draw), (275, 0))
+        if draw == 0:
+            for i in range(4):
+                for j in range(4):
+                    Player[i+1][j].draw(scor[i][j][0], scor[i][j][1])
+        else:
+            screen.blit(diceimg.get(draw), (275, 0))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

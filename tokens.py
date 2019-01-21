@@ -6,14 +6,14 @@ class token:
         self.screen = surface
         self.color = color
     def draw(self):
-        if self.color == 1:
+        if self.color == 'red':
             image = pygame.image.load('resources\Redtoken.png')
-        elif self.color == 2:
+        elif self.color == 'green':
             image = pygame.image.load('resources\Greentoken.png')
-        elif self.color == 3:
+        elif self.color == 'yellow':
+            image = pygame.image.load('resources\Yellowtoken.png')
+        elif self.color == 'blue':
             image = pygame.image.load('resources\Bluetoken.png')
-        elif self.color == 4:
-            image = pygame.image.load('resources\yellowtoken.png')
-        self.screen.blit(image, (self.xcor, self.ycor))
+        self.screen.blit(image, (self.xcor-5, self.ycor-5))
 
 
