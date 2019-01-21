@@ -30,6 +30,21 @@ class board:
         pygame.draw.rect(self.surface, red, pygame.Rect(BXO, BYO+3*SBH +BBH, BBW, BBH))
         pygame.draw.rect(self.surface, yellow, pygame.Rect(BXO+3*SBW+BBW, BYO, BBW, BBH))
         pygame.draw.rect(self.surface, blue, pygame.Rect(BXO+3*SBW+BBW, BYO+3*SBH+BBH, BBW, BBH))
+
+        pygame.draw.rect(self.surface, white, pygame.Rect(30+BXO, 30+BYO, BIBW, BIBH))
+        pygame.draw.rect(self.surface, white, pygame.Rect(30+BXO, 30+BYO+3*SBH +BBH, BIBW, BIBH))
+        pygame.draw.rect(self.surface, white, pygame.Rect(30+BXO+3*SBW+BBW, 30+BYO, BIBW, BIBH))
+        pygame.draw.rect(self.surface, white, pygame.Rect(30+BXO+3*SBW+BBW, 30+BYO+3*SBH+BBH, BIBW, BIBH))
+
+        pygame.draw.rect(self.surface, green, pygame.Rect(30 + BXO, 76 + BYO, TPBW, TPBW),1)
+        pygame.draw.rect(self.surface, green, pygame.Rect(2*TPBW +30 + BXO, 76 + BYO, TPBW, TPBW),1)
+        pygame.draw.rect(self.surface, green, pygame.Rect(30+TPBW + BXO, 30 + BYO, TPBW, TPBW),1)
+        pygame.draw.rect(self.surface, green, pygame.Rect(30+ TPBW+ BXO, 2*TPBW+30 + BYO, TPBW, TPBW),1)
+
+        pygame.draw.rect(self.surface, black, pygame.Rect(30 + BXO, 30 + BYO + 3 * SBH + BBH, TPBW, TPBW))
+        pygame.draw.rect(self.surface, black, pygame.Rect(30 + BXO + 3 * SBW + BBW, 30 + BYO, TPBW, TPBW))
+        pygame.draw.rect(self.surface, black, pygame.Rect(30 + BXO + 3 * SBW + BBW, 30 + BYO + 3 * SBH + BBH, TPBW, TPBW))
+
         pygame.draw.polygon(self.surface,green,[T1, T3, T4])
         pygame.draw.polygon(self.surface, yellow, [T1, T3, T2])
         pygame.draw.polygon(self.surface, red, [T4, T3, T5])

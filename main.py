@@ -51,11 +51,9 @@ diceimg = {1: pygame.image.load('resources\dice1.png'),
                  6: pygame.image.load('resources\dice6.png')}
 
 Player = { 1: (player.player('red', screen), player.player('red', screen), player.player('red', screen), player.player('red', screen)),
-                2: (player.player('green', screen), player.player('green', screen), player.player('green', screen), player.player('green', screen),),
-                3: (player.player('yellow', screen), player.player('yellow', screen), player.player('yellow', screen), player.player('yellow', screen), ),
-                4: (player.player('blue', screen), player.player('blue', screen), player.player('blue', screen), player.player('blue', screen), )}
-
-Gplayer = { }
+                2: (player.player('green', screen), player.player('green', screen), player.player('green', screen), player.player('green', screen)),
+                3: (player.player('yellow', screen), player.player('yellow', screen), player.player('yellow', screen), player.player('yellow', screen) ),
+                4: (player.player('blue', screen), player.player('blue', screen), player.player('blue', screen), player.player('blue', screen))}
 
 while True:
     if sts == 0:

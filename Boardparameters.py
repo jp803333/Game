@@ -5,17 +5,17 @@ yellow  = [241, 196, 15]
 white   = [255, 255, 255]
 black    = [70, 70, 70]
 
-SBW         = 33              #small box width
+SBW       = 33              #small box width
 SBH        = 33                #small box height
-BBW      = 198               #big box width
-BBH     = 198                #big box Height
-BXO     =  50                 #Big x origin
-BYO     =  50                 #big y origin
-BIBW       =  148           #big inner box width
-BIBH        =  148          #big inner box height
-BIBX        =   75            #big inner box x
-BIBY        =   75            #big inner box y
-TPBoxW             =   0
+BBW       = 198               #big box width
+BBH        = 198                #big box Height
+BXO        =  50                 #Big x origin
+BYO        =  50                 #big y origin
+BIBW      =  138          #big inner box width
+BIBH       =  138          #big inner box height
+BIBX       =   75            #big inner box x
+BIBY       =   75            #big inner box y
+TPBW     =   46
 
 T1 = (248, 248);             T2 = (347, 248);
 T3 = (297.5, 297.5);
