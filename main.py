@@ -13,7 +13,7 @@ from coordinates import bluepath as bcor
 
 pygame.init()
 
-size = width, height = 600, 600
+size = width, height = 600, 700
 bgimage = pygame.image.load('resources\main.png')
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption('craap')
