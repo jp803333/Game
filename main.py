@@ -4,6 +4,7 @@ import startgame
 import buttons
 import random
 import player
+from Boardparameters import *
 from coordinates import origincoordinates as scor
 from coordinates import redpath as rcor
 from coordinates import greenpath as gcor
@@ -13,7 +14,7 @@ from coordinates import bluepath as bcor
 
 pygame.init()
 
-size = width, height = 600, 700
+size = width, height = 800, 600
 bgimage = pygame.image.load('resources\main.png')
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption('craap')
