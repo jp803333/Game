@@ -16,8 +16,9 @@ class Buttons:
         mouse = pygame.mouse.get_pos()
         if (self.xcor+self.width) >= mouse[0] >= self.xcor and (self.ycor+self.height) >= mouse[1] >= self.ycor:
             pygame.draw.rect(self.surface, self.acolor, pygame.Rect(self.xcor, self.ycor, self.width, self.height))
-            if pygame.mouse.get_pressed()[0] == 1:
-                self.func()
+            if self.func != None:
+                if pygame.mouse.get_pressed()[0] == 1:
+                    self.func()
         else:
             pygame.draw.rect(self.surface, self.pcolor, pygame.Rect(self.xcor, self.ycor, self.width, self.height))
 
