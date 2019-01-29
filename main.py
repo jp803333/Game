@@ -146,7 +146,6 @@ def UpBoard():
                 if i == 3:
                     Player[3][j].draw(RedPath[position[i][j]][0], RedPath[position[i][j]][1])
 
-
 def pcd(player):
     pygame.draw.rect(screen, white, pygame.Rect(600, 450, 100, 50))
     fontobj = pygame.font.Font('freesansbold.ttf', 18)
@@ -192,12 +191,50 @@ def PlayerTokenSelect(player):
             pcrd[i].Draw()
         pcd(player)
 
+def CollisionChecker(pt, token):
+    global position
+    if pt == 0 and position[pt][token]  != -1:
+        if position[pt][token] != 8 and position[pt][token] != 21 and position[pt][token] != 34 and position[pt][token] != 47:
+            for i in range(4):
+                if GreenPath.get(position[pt][token]) == YellowPath.get(position[1][i]):
+                    position[1][i] = -1
+                if GreenPath.get(position[pt][token]) == BluePath.get(position[2][i]):
+                    position[2][i] = -1
+                if GreenPath.get(position[pt][token]) == RedPath.get(position[3][i]):
+                    position[3][i] = -1
+    elif pt == 1 and position[pt][token]  != -1:
+        if position[pt][token] != 8 and position[pt][token] != 21 and position[pt][token] != 34 and position[pt][token] != 47:
+            for i in range(4):
+                if YellowPath.get(position[pt][token]) == GreenPath.get(position[0][i]):
+                    position[0][i] = -1
+                if YellowPath.get(position[pt][token]) == BluePath.get(position[2][i]):
+                    position[2][i] = -1
+                if YellowPath.get(position[pt][token]) == RedPath.get(position[3][i]):
+                    position[3][i] = -1
+    elif pt == 2 and position[pt][token]  != -1:
+        if position[pt][token] != 8 and position[pt][token] != 21 and position[pt][token] != 34 and position[pt][token] != 47:
+            for i in range(4):
+                if BluePath.get(position[pt][token]) == GreenPath.get(position[0][i]):
+                    position[0][i] = -1
+                if BluePath.get(position[pt][token]) == YellowPath.get(position[1][i]):
+                    position[1][i] = -1
+                if BluePath.get(position[pt][token]) == RedPath.get(position[3][i]):
+                    position[3][i] = -1
+    elif pt == 3 and position[pt][token]  != -1:
+        if position[pt][token] != 8 and position[pt][token] != 21 and position[pt][token] != 34 and position[pt][token] != 47:
+            for i in range(4):
+                if RedPath.get(position[pt][token]) == GreenPath.get(position[0][i]):
+                    position[0][i] = -1
+                if RedPath.get(position[pt][token]) == YellowPath.get(position[1][i]):
+                    position[1][i] = -1
+                if RedPath.get(position[pt][token]) == BluePath.get(position[2][i]):
+                    position[2][i] = -1
+
 def playerchoice():
     global playerturn, diceclick, tokenclick,position,draw
     if diceclick == True:
         if playerturn == 4:
             playerturn = 0
-         #if playerturn == 0:
         if 700 >= pos()[0] >=600 and 100 >= pos()[1] >= 50:
             if pygame.mouse.get_pressed()[0] == 1:
                 if firstdraw[playerturn] == True:
@@ -206,6 +243,7 @@ def playerchoice():
                         firstdraw[playerturn] = False
                 elif position[playerturn][0] + draw < 57:
                     position[playerturn][0] += draw
+                CollisionChecker(playerturn,0)
                 diceclick = False
                 tokenclick = True
                 playerturn += 1
@@ -218,6 +256,7 @@ def playerchoice():
                         firstdraw[playerturn] = False
                 elif position[playerturn][1] + draw < 57:
                     position[playerturn][1] += draw
+                CollisionChecker(playerturn, 1)
                 diceclick = False
                 tokenclick = True
                 playerturn += 1
@@ -230,6 +269,7 @@ def playerchoice():
                         firstdraw[playerturn] = False
                 elif position[playerturn][2] + draw < 57:
                     position[playerturn][2] += draw
+                CollisionChecker(playerturn, 2)
                 diceclick = False
                 tokenclick = True
                 playerturn += 1
@@ -242,6 +282,7 @@ def playerchoice():
                         firstdraw[playerturn] = False
                 elif position[playerturn][3] + draw < 57:
                     position[playerturn][3] += draw
+                CollisionChecker(playerturn, 2)
                 diceclick = False
                 tokenclick = True
                 playerturn += 1
@@ -407,30 +448,30 @@ def win():
         return True
     return False
 
-def showwin(player):
+def showwin(ply):
     fontobj = pygame.font.Font('freesansbold.ttf', 35)
     screen.fill((255, 255, 255))
-    if player == 4:
-        player = 0
-    if player == 0:
-        displayfont = fontobj.render('Player green won', True, [0, 0, 0])
+    if ply == 4:
+        ply = 0
+    if ply == 0:
+        displayfont = fontobj.render('player green won', True, [0, 0, 0])
         disrect = displayfont.get_rect()
         disrect.center = (400, 300)
         screen.blit(displayfont, disrect)
 
-    elif player == 1:
+    elif ply == 1:
         displayfont = fontobj.render('Player Yellow won', True, [0, 0, 0])
         disrect = displayfont.get_rect()
         disrect.center = (400, 300)
         screen.blit(displayfont, disrect)
 
-    elif player == 2:
+    elif ply == 2:
         displayfont = fontobj.render('Player Blue won', True, [0, 0, 0])
         disrect = displayfont.get_rect()
         disrect.center = (400, 300)
         screen.blit(displayfont, disrect)
 
-    elif player == 3:
+    elif ply == 3:
         displayfont = fontobj.render('Player Red won', True, [0, 0, 0])
         disrect = displayfont.get_rect()
         disrect.center = (400, 300)
